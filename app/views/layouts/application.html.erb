@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>CspriteServer</title>
+  <%= stylesheet_link_tag    "application", :media => "all", :debug => false %>
+  <%= javascript_include_tag "application" %>
+  <%= yield(:assert) %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+	<%= render "/shared/nav" %>
+	<div class="container">
+		<%= yield %>
+	</div>
+	<%= render "/shared/footer" %>
+</body>
+</html>

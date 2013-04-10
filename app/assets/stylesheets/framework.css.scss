@@ -1,0 +1,13 @@
+/* framework for global */
+
+@import "base";
+
+@mixin borderRadius($width: 1px, $color: $black) {
+	border: $width solid $color;
+	border-radius: 3px;
+}
+
+.title {
+	@include borderRadius(1px, $blue);
+	color: $blue;
+}

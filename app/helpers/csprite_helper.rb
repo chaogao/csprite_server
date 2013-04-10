@@ -1,0 +1,2 @@
+module CspriteHelper
+end
