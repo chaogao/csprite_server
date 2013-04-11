@@ -1,7 +1,17 @@
 CspriteServer::Application.routes.draw do
   # The priority is based upon order of creation:
   # first created -> highest priority.
-  root :to => 'csprite#index'
+  root :to => 'user#login'
+
+  resources :csprite
+
+  resources :user do
+    collection do
+      get 'login'
+      post 'login'
+      get 'logout'
+    end
+  end
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

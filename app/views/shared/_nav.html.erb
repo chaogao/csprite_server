@@ -2,3 +2,7 @@
 	<li><a href="javascript:">csprite</a></li>
 	<li><a href="javascript:">help</a></li>
 </ul>
+<% if @currentUser %>
+	<%= link_to "Logout", {:controller => :user, :action => :logout}, {:class => "btn"} %>
+	<span><%= @currentUser.uname %></span>
+<% end %>

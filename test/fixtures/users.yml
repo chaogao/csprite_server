@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  uid: 
+  uname: 
+  uemail: 
+  upasswd: 
+  salt: MyString
+  string: MyString
+
+two:
+  uid: 
+  uname: 
+  uemail: 
+  upasswd: 
+  salt: MyString
+  string: MyString
