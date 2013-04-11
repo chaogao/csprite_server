@@ -8,7 +8,7 @@ class UserController < ApplicationController
         session[:uid] = user.id
         redirect_home      
       else
-        render :login
+        redirect_to :action => :login
       end
     else
       @user = User.new
