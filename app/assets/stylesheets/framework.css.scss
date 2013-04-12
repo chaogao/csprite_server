@@ -2,6 +2,46 @@
 
 @import "base";
 
+.container-main {
+  min-height: 500px;
+}
+
+.nav-big {
+  background-color: rgba($blue, 0.1);
+
+  .right {
+    float: right;
+  }
+
+  span, input {
+    font-size: 24px;
+    line-height: 64px;
+    vertical-align: bottom;
+    border-width: 0;
+  }
+}
+
+.nav-action {
+  background-color: $greenSmoke;
+}
+
+.nav-nobg {
+  background-color: transparent;
+}
+
+.nav-single {
+  li {
+    width: 100%;
+  }
+}
+
+.footer {
+  padding: 20px 0;
+  text-align: center;
+  background-color: $whiteSmoke;
+  color: $gray;
+}
+
 @mixin borderRadius($width: 1px, $color: $black) {
 	border: $width solid $color;
 	border-radius: 3px;
@@ -11,3 +51,111 @@
 	@include borderRadius(1px, $blue);
 	color: $blue;
 }
+
+
+[class^="icon-new-"],
+[class*=" icon-new-"] {
+  display: inline-block;
+  width: 64px;
+  height: 64px;
+  margin-top: 1px;
+  *margin-right: .3em;
+  line-height: 14px;
+  vertical-align: text-top;
+  background-image: url("/assets/icons_5167844f66e4b.png");
+  background-position: 14px 14px;
+  background-repeat: no-repeat;
+}
+
+.icon-new-ActiveXCache{ background-position: 0 0; width: 64px; height: 64px; } 
+.icon-new-AddHardware{ background-position: 0 -114px; width: 64px; height: 64px; } 
+.icon-new-AddorRemovePrograms{ background-position: 0 -228px; width: 64px; height: 64px; } 
+.icon-new-AdministrativeTools{ background-position: 0 -342px; width: 64px; height: 64px; } 
+.icon-new-AudioCD{ background-position: 0 -456px; width: 64px; height: 64px; } 
+.icon-new-AudioFile{ background-position: 0 -570px; width: 64px; height: 64px; } 
+.icon-new-AudioPlayer{ background-position: 0 -684px; width: 64px; height: 64px; } 
+.icon-new-Audio{ background-position: 0 -798px; width: 64px; height: 64px; } 
+.icon-new-CD-ROMDrive{ background-position: 0 -912px; width: 64px; height: 64px; } 
+.icon-new-Cabfile{ background-position: 0 -1026px; width: 64px; height: 64px; } 
+.icon-new-Chrome{ background-position: 0 -1140px; width: 64px; height: 64px; } 
+.icon-new-ConfigurationSettings{ background-position: 0 -1254px; width: 64px; height: 64px; } 
+.icon-new-ControlPanel{ background-position: 0 -1368px; width: 64px; height: 64px; } 
+.icon-new-DateandTime{ background-position: 0 -1482px; width: 64px; height: 64px; } 
+.icon-new-DefaultDocument{ background-position: 0 -1596px; width: 64px; height: 64px; } 
+.icon-new-DefaultIcon{ background-position: 0 -1710px; width: 64px; height: 64px; } 
+.icon-new-Desktop{ background-position: 0 -1824px; width: 64px; height: 64px; } 
+.icon-new-Email-MessageNew{ background-position: 0 -1938px; width: 64px; height: 64px; } 
+.icon-new-Email{ background-position: -114px 0; width: 64px; height: 64px; } 
+.icon-new-Floppy{ background-position: -114px -114px; width: 64px; height: 64px; } 
+.icon-new-Folder-Blank{ background-position: -114px -228px; width: 64px; height: 64px; } 
+.icon-new-Folder-Documents{ background-position: -114px -342px; width: 64px; height: 64px; } 
+.icon-new-Folder-Favorites-Heart{ background-position: -114px -456px; width: 64px; height: 64px; } 
+.icon-new-Folder-Favorites-Star{ background-position: -114px -570px; width: 64px; height: 64px; } 
+.icon-new-Folder-Fonts{ background-position: -114px -684px; width: 64px; height: 64px; } 
+.icon-new-Folder-MyMusic{ background-position: -114px -798px; width: 64px; height: 64px; } 
+.icon-new-Folder-MyPictures{ background-position: -114px -912px; width: 64px; height: 64px; } 
+.icon-new-Folder-MySharingFolder{ background-position: -114px -1026px; width: 64px; height: 64px; } 
+.icon-new-Folder-MyVideos{ background-position: -114px -1140px; width: 64px; height: 64px; } 
+.icon-new-Folder-New{ background-position: -114px -1254px; width: 64px; height: 64px; } 
+.icon-new-Folder-Open{ background-position: -114px -1368px; width: 64px; height: 64px; } 
+.icon-new-Folder-Options{ background-position: -114px -1482px; width: 64px; height: 64px; } 
+.icon-new-Folder-Private{ background-position: -114px -1596px; width: 64px; height: 64px; } 
+.icon-new-Folder-ProgramGroup{ background-position: -114px -1710px; width: 64px; height: 64px; } 
+.icon-new-Folder-Remotedisconnected{ background-position: -114px -1824px; width: 64px; height: 64px; } 
+.icon-new-Folder-Search{ background-position: -114px -1938px; width: 64px; height: 64px; } 
+.icon-new-Folder-Shared{ background-position: -228px 0; width: 64px; height: 64px; } 
+.icon-new-Folder{ background-position: -228px -114px; width: 64px; height: 64px; } 
+.icon-new-Fontfile{ background-position: -228px -228px; width: 64px; height: 64px; } 
+.icon-new-GameControllers{ background-position: -228px -342px; width: 64px; height: 64px; } 
+.icon-new-HardDriveoffline{ background-position: -228px -456px; width: 64px; height: 64px; } 
+.icon-new-Harddrive{ background-position: -228px -570px; width: 64px; height: 64px; } 
+.icon-new-HelpandSupport{ background-position: -228px -684px; width: 64px; height: 64px; } 
+.icon-new-Helpfile{ background-position: -228px -798px; width: 64px; height: 64px; } 
+.icon-new-History{ background-position: -228px -912px; width: 64px; height: 64px; } 
+.icon-new-IM{ background-position: -228px -1026px; width: 64px; height: 64px; } 
+.icon-new-Iconpackagermarshall{ background-position: -228px -1140px; width: 64px; height: 64px; } 
+.icon-new-Image-Bitmap{ background-position: -228px -1254px; width: 64px; height: 64px; } 
+.icon-new-Image-Jpeg{ background-position: -228px -1368px; width: 64px; height: 64px; } 
+.icon-new-Image-Png{ background-position: -228px -1482px; width: 64px; height: 64px; } 
+.icon-new-ImageFile{ background-position: -228px -1596px; width: 64px; height: 64px; } 
+.icon-new-InternetDocument{ background-position: -228px -1710px; width: 64px; height: 64px; } 
+.icon-new-InternetOptions{ background-position: -228px -1824px; width: 64px; height: 64px; } 
+.icon-new-Internet{ background-position: -228px -1938px; width: 64px; height: 64px; } 
+.icon-new-LiveFolderData{ background-position: -342px 0; width: 64px; height: 64px; } 
+.icon-new-MS-DOSApplication{ background-position: -342px -114px; width: 64px; height: 64px; } 
+.icon-new-MS-DOSBatchFile{ background-position: -342px -228px; width: 64px; height: 64px; } 
+.icon-new-Mediafile{ background-position: -342px -342px; width: 64px; height: 64px; } 
+.icon-new-Mouse{ background-position: -342px -456px; width: 64px; height: 64px; } 
+.icon-new-MyComputer{ background-position: -342px -570px; width: 64px; height: 64px; } 
+.icon-new-MyNetowrkPlaces{ background-position: -342px -684px; width: 64px; height: 64px; } 
+.icon-new-NetworkDriveconnected{ background-position: -342px -798px; width: 64px; height: 64px; } 
+.icon-new-NetworkDriveoffline{ background-position: -342px -912px; width: 64px; height: 64px; } 
+.icon-new-Opera{ background-position: -342px -1026px; width: 64px; height: 64px; } 
+.icon-new-PowerOptions{ background-position: -342px -1140px; width: 64px; height: 64px; } 
+.icon-new-PrintersandFaxes{ background-position: -342px -1254px; width: 64px; height: 64px; } 
+.icon-new-Quit{ background-position: -342px -1368px; width: 64px; height: 64px; } 
+.icon-new-RecentDocuments{ background-position: -342px -1482px; width: 64px; height: 64px; } 
+.icon-new-RecycleBinempty{ background-position: -342px -1596px; width: 64px; height: 64px; } 
+.icon-new-RecycleBinfull{ background-position: -342px -1710px; width: 64px; height: 64px; } 
+.icon-new-RegistrySettings{ background-position: -342px -1824px; width: 64px; height: 64px; } 
+.icon-new-RemovableDrive{ background-position: -342px -1938px; width: 64px; height: 64px; } 
+.icon-new-ResHacker{ background-position: -456px 0; width: 64px; height: 64px; } 
+.icon-new-ScannersCameras{ background-position: -456px -114px; width: 64px; height: 64px; } 
+.icon-new-Search{ background-position: -456px -228px; width: 64px; height: 64px; } 
+.icon-new-Star{ background-position: -456px -342px; width: 64px; height: 64px; } 
+.icon-new-System-Copyfile{ background-position: -456px -456px; width: 64px; height: 64px; } 
+.icon-new-System-harddrive{ background-position: -456px -570px; width: 64px; height: 64px; } 
+.icon-new-System{ background-position: -456px -684px; width: 64px; height: 64px; } 
+.icon-new-TaskbarandStartMenu{ background-position: -456px -798px; width: 64px; height: 64px; } 
+.icon-new-TextDocument{ background-position: -456px -912px; width: 64px; height: 64px; } 
+.icon-new-UrlHistory{ background-position: -456px -1026px; width: 64px; height: 64px; } 
+.icon-new-Winamp{ background-position: -456px -1140px; width: 64px; height: 64px; } 
+.icon-new-ZipFile{ background-position: -456px -1254px; width: 64px; height: 64px; } 
+.icon-new-image-loading{ background-position: -456px -1368px; width: 64px; height: 64px; } 
+.icon-new-keyboard{ background-position: -456px -1482px; width: 64px; height: 64px; } 
+.icon-new-media-eject{ background-position: -456px -1596px; width: 64px; height: 64px; } 
+.icon-new-network-workgroup{ background-position: -456px -1710px; width: 64px; height: 64px; } 
+.icon-new-run{ background-position: -456px -1824px; width: 64px; height: 64px; } 
+.icon-new-users{ background-position: -456px -1938px; width: 64px; height: 64px; } 
+.icon-new-utorrentfile{ background-position: -570px 0; width: 64px; height: 64px; } 
+.icon-new-utorrent{ background-position: -570px -114px; width: 64px; height: 64px; }

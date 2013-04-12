@@ -1,16 +1,28 @@
 <!DOCTYPE html>
 <html>
 <head>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>CspriteServer</title>
-  <%= stylesheet_link_tag    "application", :media => "all", :debug => false %>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
   <%= javascript_include_tag "application" %>
   <%= yield(:assert) %>
   <%= csrf_meta_tags %>
 </head>
 <body>
 	<%= render "/shared/nav" %>
-	<div class="container">
-		<%= yield %>
+	<div class="container container-main">
+		<% if content_for?(:silder) %>
+      <div class="row">
+        <div class="span3">
+          <%= yield(:silder) %>
+        </div>
+        <div class="span9">
+          <%= yield %>
+        </div>
+      </div>
+    <% else %>
+      <%= yield %>
+    <% end %>
 	</div>
 	<%= render "/shared/footer" %>
 </body>

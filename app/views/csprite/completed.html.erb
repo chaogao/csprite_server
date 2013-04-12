@@ -1,0 +1,23 @@
+<h2 class="text-success">Your Project <%= link_to @currentCsprite.name, @currentCsprite %> Added </h2>
+<h3 class="text-info">We Guest You Want</h3>
+
+<ul class="nav nav-pills nav-big nav-action">
+    <li>
+        <a href="/csprite/<%= @currentCsprite.id %>/edit">
+            <i class="icon-new-ResHacker"></i>
+            <span>Edie Details</span>
+        </a>
+    </li>
+    <li>
+        <a href="/csprite">
+            <i class="icon-new-TextDocument"></i>
+            <span>Return Project List</span>
+        </a>
+    </li>
+    <li>
+        <a href="/csprite/new">
+            <i class="icon-new-AddHardware"></i>
+            <span>Countinue Create</span>
+        </a>
+    </li>
+</ul>

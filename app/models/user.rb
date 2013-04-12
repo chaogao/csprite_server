@@ -3,6 +3,8 @@ require 'digest/sha1'
 class User < ActiveRecord::Base
   attr_accessible :uemail, :uname, :passwd, :passwd_confirmation
 
+  has_many :csprites
+
   validates_uniqueness_of [:uemail]
   validates_presence_of [:uname, :uemail, :upasswd]
   validates_confirmation_of :passwd

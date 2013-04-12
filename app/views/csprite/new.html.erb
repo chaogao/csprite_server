@@ -1,0 +1,39 @@
+<%= debug(@csprite.errors) %>
+
+<%= form_for @csprite, :url => {:action => "create"}, :html => {:class => "form-horizontal"} do |c| %>
+    <div class="control-group">
+        <label class="control-label">Project Name</label>
+        <div class="controls">
+            <%= c.text_field :name %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Project Thumb</label>
+        <div class="controls">
+            <%= c.text_field :thumb %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Project Description</label>
+        <div class="controls">
+            <%= c.text_area :description, {:rows => 4} %>  
+        </div>
+    </div>
+
+    <ul class="nav nav-pills nav-big nav-action">
+        <li>
+            <a href="javascript:">
+                <i class="icon-new-Floppy"></i>
+                <input class="btn-link" value="Save Project" type="submit">
+            </a>
+        </li>
+        <li>
+            <a href="/csprite">
+                <i class="icon-new-TextDocument"></i>
+                <span>Return Project List</span>
+            </a>
+        </li>
+    </ul>
+<% end %>

@@ -3,7 +3,11 @@ CspriteServer::Application.routes.draw do
   # first created -> highest priority.
   root :to => 'user#login'
 
-  resources :csprite
+  resources :csprite do
+    member do
+      get 'completed'
+    end
+  end
 
   resources :user do
     collection do

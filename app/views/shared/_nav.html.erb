@@ -1,8 +1,49 @@
-<ul class="nav">
-	<li><a href="javascript:">csprite</a></li>
-	<li><a href="javascript:">help</a></li>
+<ul class="nav nav-pills nav-big">
+    <% if @currentUser %>
+        <li>
+            <a href="/csprite">
+                <i class="icon-new-IM"></i>
+                <span><%= @currentUser.uname %></span>
+            </a>
+        </li>
+        <li>
+            <a href="/csprite/new">
+                <i class="icon-new-AddHardware"></i>
+                <span>New Project</span>
+            </a>
+        </li>
+        <li class="right">
+            <a href="/user/logout">
+                <i class="icon-new-LiveFolderData"></i>
+                <span>Logout</span>
+            </a>
+        </li>
+    <% else %>
+        <li>
+            <a href="/user/login">
+                <i class="icon-new-users"></i>
+                <span>Login</span>
+            </a>
+        </li>
+        <li>
+            <a href="/user/new">
+                <i class="icon-new-RegistrySettings"></i>
+                <span>Registe</span>
+            </a>
+        </li>
+    <% end %>
+
+    <li class="right">
+        <a href="/csprite/about">
+            <i class="icon-new-Internet"></i>
+            <span>About</span>
+        </a>
+    </li>
+
+    <li class="right">
+        <a href="/csprite/help">
+            <i class="icon-new-Folder-Documents"></i>
+            <span>Documents</span>
+        </a>
+    </li>
 </ul>
-<% if @currentUser %>
-	<%= link_to "Logout", {:controller => :user, :action => :logout}, {:class => "btn"} %>
-	<span><%= @currentUser.uname %></span>
-<% end %>

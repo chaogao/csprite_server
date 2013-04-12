@@ -1,37 +1,42 @@
-<%= debug(@user.errors) %>
-<%= form_for @user, :url => {:action => "create"}, :html => {:class => "form-horizontal"} do |u| %>
-    <div class="control-group">
-        <label class="control-label">Email</label>
-        <div class="controls">
-            <%= u.text_field :uemail %>
+<% content_for :silder do %>
+    <%= form_for @user, :url => {:action => "create"}, :html => {:class => "form"} do |u| %>
+        <div class="control-group">
+            <label class="control-label">Email</label>
+            <div class="controls">
+                <%= u.text_field :uemail, {:class => "input-block-level"} %>
+            </div>
         </div>
-    </div>
 
-    <div class="control-group">
-        <label class="control-label">Name</label>
-        <div class="controls">
-            <%= u.text_field :uname %>  
+        <div class="control-group">
+            <label class="control-label">Name</label>
+            <div class="controls">
+                <%= u.text_field :uname, {:class => "input-block-level"} %>
+            </div>
         </div>
-    </div>
 
-    <div class="control-group">
-        <label class="control-label">Password</label>
-        <div class="controls">
-            <%= u.password_field :passwd %>
+        <div class="control-group">
+            <label class="control-label">Password</label>
+            <div class="controls">
+                <%= u.password_field :passwd, {:class => "input-block-level"} %>
+            </div>
         </div>
-    </div>
 
-    <div class="control-group">
-        <label class="control-label">Password Confirm</label>
-        <div class="controls">
-            <%= u.password_field :passwd_confirmation %>
+        <div class="control-group">
+            <label class="control-label">Password Confirm</label>
+            <div class="controls">
+                <%= u.password_field :passwd_confirmation, {:class => "input-block-level"} %>
+            </div>
         </div>
-    </div>
 
-    <div class="control-group">
-        <label class="control-label"></label>
-        <div class="controls">
-            <%= u.submit "Registe" %>
-        </div>
-    </div>
+        <ul class="nav nav-pills nav-big nav-action nav-single">
+            <li>
+                <a href="javascript:">
+                    <i class="icon-new-Mouse"></i>
+                    <input class="btn-link" value="Registe" type="submit">
+                </a>
+            </li>
+        </ul>
+    <% end %>
 <% end %>
+
+<%= render "/shared/banner" %>
