@@ -69,6 +69,11 @@ class CspriteController < ApplicationController
         if @currentUser.csprites.count == 0
             @noProject = true
         end
-        ((@currentUser.csprites.count + 1) / PAGECOUNT).to_i + 1
+        
+        if @currentUser.csprites.count % PAGECOUNT == 0
+            (@currentUser.csprites.count / PAGECOUNT).to_i        
+        else
+            ((@currentUser.csprites.count) / PAGECOUNT).to_i + 1
+        end
     end
 end
