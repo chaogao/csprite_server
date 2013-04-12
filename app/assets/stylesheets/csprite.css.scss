@@ -1,10 +1,63 @@
 @import "base";
 
-.title {
-	a {
-		margin: 0 0 0 10px;
-		vertical-align: middle;
-		font-size: 14px;
-		color: $black;
+.thumbnails-square {
+	.thumbnail {
+		@include border-radius(0);
+	}
+
+	.image-container {
+		background-size: cover;
+	}
+
+	.span5 .image-container {
+		height: 290px;
+	}
+
+	.span2 .image-container {
+		height: 130px;
+	}
+
+	.span3 .image-container {
+		height: 210px;
+	}
+
+	.description {
+		postion: abso
+	}
+
+	.thumbnail {
+		position: relative;
+	}
+}
+
+@media (min-width: 1200px) {
+	.thumbnails-square {
+		.span5 .image-container {
+			height: 350px;
+		}
+
+		.span2 .image-container {
+			height: 160px;
+		}
+
+		.span3 .image-container {
+			height: 260px;
+		}
+	}
+}
+
+@media (min-width: 768px) and (max-width: 979px) {
+	.thumbnails-square {
+		.span5 .image-container {
+			height: 218px;
+		}
+
+		.span2 .image-container {
+			height: 94px;
+		}
+
+		.span3 .image-container {
+			height: 156px;
+		}
 	}
 }

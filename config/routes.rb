@@ -6,6 +6,7 @@ CspriteServer::Application.routes.draw do
   resources :csprite do
     member do
       get 'completed'
+      get 'page'
     end
   end
 

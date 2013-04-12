@@ -1,9 +1,22 @@
 class CspriteController < ApplicationController
     before_filter :auth_login
 
-    before_filter :auth_csprite, :include => [:completed]
+    before_filter :auth_csprite, :only => [:completed]
+
+    PAGECOUNT = 8
 
     def index
+        redirect_page(0)
+    end
+
+    # csprite/{:id}/page
+    def page
+        @pageNum = calc_pagenum
+        @currentPage = params[:id].to_i || 0
+        @cspritesOutput = @currentUser.csprites.limit(PAGECOUNT).offset(@currentPage * PAGECOUNT)
+        if @cspritesOutput.count == 0 && @currentPage != 0
+            redirect_page(0)
+        end
     end
 
     def new
@@ -37,6 +50,10 @@ class CspriteController < ApplicationController
         redirect_to :action => :completed, :id => id
     end
 
+    def redirect_page(id) 
+        redirect_to :action => :page, :id => id
+    end
+
     def auth_csprite
         if params[:id]
             csprite = Csprite.find_by_id(params[:id])
@@ -46,5 +63,12 @@ class CspriteController < ApplicationController
                 redirect_list
             end
         end
+    end
+
+    def calc_pagenum
+        if @currentUser.csprites.count == 0
+            @noProject = true
+        end
+        ((@currentUser.csprites.count + 1) / PAGECOUNT).to_i + 1
     end
 end

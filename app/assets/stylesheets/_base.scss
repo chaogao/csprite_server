@@ -1,6 +1,14 @@
 $blue: #1875e7;
 $black: #000000;
+$white: white;
 $gray: #777;
 $whiteSmoke: whiteSmoke;
 $greenSmoke: #F5F5D5;
+$purple: rgb(100, 15, 108);
+$purpleSmoke: #8d46b0;
 
+@mixin border-radius($value: 1px) {
+	-webkit-border-radius: $value;
+	-moz-border-radius: $value;
+	border-radius: $value;
+}

@@ -1,0 +1,61 @@
+<% content_for :assert do %>
+  <%= stylesheet_link_tag "csprite", :media => "all" %>
+<% end %>
+
+<% if !@noProject %>
+	<% content_for :silder do %>
+		<ul class="nav nav-stacked nav-pills nav-floor">
+			<% @pageNum.times do |i| %>
+				<li <% if i == @currentPage %> class="active" <% end %> >
+					<a href="/csprite/<%= i %>/page"><span class="layer-num-<%= i % 10  %>"><%= i + 1 %></span><span>Floor<span></a>
+				</li>
+			<% end %>
+		</ul>
+	<% end %>
+<% end %>
+
+<% if @noProject %>
+	<h2 class="text-info">Your Project-Home is empty!</h2>
+
+	<ul class="nav nav-pills nav-big nav-action nav-single">
+	    <li>
+	        <a href="/csprite/new">
+	            <i class="icon-new-AddHardware"></i>
+	            <span>Create!</span>
+	        </a>
+	    </li>
+	</ul>
+<% end %>
+
+<ul class="thumbnails thumbnails-square">
+	<% @cspritesOutput.each_index do |i| %>
+		<% if i == 0 %>
+			<li class="span5">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+					<div class="image-container" style="background-image: url(/assets/banner/img1.jpg)"></div>
+					<div class="carousel-caption">
+						<h4><%= @cspritesOutput[i].name %></h4>
+					</div>
+				</a>
+			</li>
+		<% elsif i > 4 %>
+			<li class="span3">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+					<div class="image-container" style="background-image: url(/assets/banner/img1.jpg)"></div>
+					<div class="carousel-caption">
+						<h4><%= @cspritesOutput[i].name %></h4>
+					</div>
+				</a>
+			</li>
+		<% else %>
+			<li class="span2">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+					<div class="image-container" style="background-image: url(/assets/banner/img1.jpg)"></div>
+					<div class="carousel-caption">
+						<h4><%= @cspritesOutput[i].name %></h4>
+					</div>
+				</a>
+			</li>
+		<% end %>
+	<% end %>
+</ul>
