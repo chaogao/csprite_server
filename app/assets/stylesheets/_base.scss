@@ -6,6 +6,7 @@ $whiteSmoke: whiteSmoke;
 $greenSmoke: #F5F5D5;
 $purple: rgb(100, 15, 108);
 $purpleSmoke: #8d46b0;
+$orange: #ffbb00;
 
 @mixin border-radius($value: 1px) {
 	-webkit-border-radius: $value;

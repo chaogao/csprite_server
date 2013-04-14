@@ -2,6 +2,26 @@
 
 @import "base";
 
+[class^="text-block-"] {
+  display: block;
+  padding: 8px 10px;
+  font-size: 24px;
+  span {
+    vertical-align: middle;
+  }
+}
+
+.text-block-green {
+  background-color: $orange;
+  a {
+    color: $white;
+    text-decoration: none;
+  }
+  &:hover {
+    background-color: darken($orange, 5);
+  }
+}
+
 .nav-big {
   background-color: rgba($blue, 0.1);
 
@@ -63,16 +83,6 @@
   text-align: center;
   background-color: $whiteSmoke;
   color: $gray;
-}
-
-@mixin borderRadius($width: 1px, $color: $black) {
-	border: $width solid $color;
-	border-radius: 3px;
-}
-
-.title {
-	@include borderRadius(1px, $blue);
-	color: $blue;
 }
 
 
@@ -182,3 +192,64 @@
 .icon-new-users{ background-position: -456px -1938px; width: 64px; height: 64px; } 
 .icon-new-utorrentfile{ background-position: -570px 0; width: 64px; height: 64px; } 
 .icon-new-utorrent{ background-position: -570px -114px; width: 64px; height: 64px; }
+
+
+
+/*!
+ * CSS3 Microsoft Metro Buttons
+ * More icons Syncfusion's Metro Studio.
+ * I do not claim ownership on the origin of design and icons.
+ * Built by Ace Subido (http://github.com/ace-subido)
+ */
+ 
+[class^="m-icon-"] {
+  display: inline-block;
+  width: 14px;
+  height: 14px;
+   
+  margin-top: 0px;
+  line-height: 14px;
+  
+  vertical-align: top;
+  background-image: url(/assets/icons-syncfusion.png);
+  background-position: 0 0;
+  background-repeat: no-repeat; 
+  
+}
+[class^="m-icon-big-"] {
+  display: inline-block;
+  width: 30px;
+  height: 30px; 
+  margin: 0 10px;
+  vertical-align: top;
+  background-image: url(/assets/icons-syncfusion.png);
+  background-position: 0 0px;
+  background-repeat: no-repeat; 
+}
+[class^="big-"]:last-child {
+  *margin-left: 0;
+}
+.m-icon-swapright {
+  background-position: -27px -10px;
+}
+.m-icon-swapdown {
+  background-position: -68px -10px;
+}
+.m-icon-swapleft {
+  background-position: -8px -10px;
+}
+.m-icon-swapup {
+  background-position: -47px -10px;
+}
+.m-icon-big-swapright{
+  background-position: -42px -28px;
+}
+.m-icon-big-swapdown{
+  background-position: -115px -28px;
+}
+.m-icon-big-swapleft{
+  background-position: -6px -28px;
+}
+.m-icon-big-swapup{
+  background-position: -78px -28px;
+}

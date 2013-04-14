@@ -5,6 +5,11 @@ class CspriteController < ApplicationController
 
     PAGECOUNT = 8
 
+    DEFAULT = {
+        :marginX => 10,
+        :marginY => 10
+    }
+
     def index
         redirect_page(0)
     end
@@ -20,6 +25,7 @@ class CspriteController < ApplicationController
     end
 
     def new
+        @default = DEFAULT
         @csprite = Csprite.new
     end
 
@@ -69,7 +75,7 @@ class CspriteController < ApplicationController
         if @currentUser.csprites.count == 0
             @noProject = true
         end
-        
+
         if @currentUser.csprites.count % PAGECOUNT == 0
             (@currentUser.csprites.count / PAGECOUNT).to_i        
         else

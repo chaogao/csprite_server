@@ -1,5 +1,3 @@
-<%= debug(@csprite.errors) %>
-
 <%= form_for @csprite, :url => {:action => "create"}, :html => {:class => "form-horizontal"} do |c| %>
     <div class="control-group">
         <label class="control-label">Project Name</label>
@@ -22,6 +20,46 @@
         </div>
     </div>
 
+    <div class="control-group">
+        <div class="controls">
+            <div class="text-block-green">
+                <a id="advaceSettingBtn" href="javascript:" data-toggle="collapse" data-target="#advanceSetting">
+                    <i class="m-icon-big-swapdown"></i>
+                    <span>Advance Config</span>
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <div id="advanceSetting" class="collapse">
+        <div class="control-group">
+            <label class="control-label">Build Direction</label>
+            <div class="controls">
+                <%= c.label :direction_0, {:class => "radio inline"} do %>
+                    <%= c.radio_button :direction, "0", {:checked => true} %>
+                    vertical
+                <% end %>
+            
+                <%= c.label :direction_1, {:class => "radio inline"} do %>
+                    <%= c.radio_button :direction, "1" %>
+                    horizontal
+                <% end %>
+            </div>
+        </div>
+
+        <div class="control-group">
+            <label class="control-label">Margin Setting</label>
+            <div class="controls">
+                <%= c.label :marginX, "horizontal margin" %>
+                <%= c.text_field :marginX %>
+
+                <%= c.label :marginY, "vertical margin" %>
+                <%= c.text_field :marginY %>
+            </div>
+        </div>
+
+    </div>
+
     <ul class="nav nav-pills nav-big nav-action">
         <li>
             <a href="javascript:">
@@ -36,4 +74,8 @@
             </a>
         </li>
     </ul>
+<% end %>
+
+<% content_for :assets do %>
+    <%= javascript_include_tag "csprite" %>
 <% end %>

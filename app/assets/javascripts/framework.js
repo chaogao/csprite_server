@@ -16,6 +16,6 @@
 		 */
 		var height = document.documentElement.clientHeight;
 
-		$(".container.container-main").css("min-height", (height - 125) + "px");
+		$(".container.container-main").css("min-height", (height - 230) + "px");
 	})
 })()
