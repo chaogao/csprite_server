@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130414025851) do
+ActiveRecord::Schema.define(:version => 20130415105329) do
 
   create_table "csprites", :force => true do |t|
     t.string   "name",                        :null => false
@@ -23,6 +23,14 @@ ActiveRecord::Schema.define(:version => 20130414025851) do
     t.integer  "direction",                   :null => false
     t.integer  "marginX",     :default => 10, :null => false
     t.integer  "marginY",     :default => 10, :null => false
+  end
+
+  create_table "icons", :force => true do |t|
+    t.string   "name",       :null => false
+    t.string   "url",        :null => false
+    t.integer  "csprite_id", :null => false
+    t.datetime "created_at", :null => false
+    t.datetime "updated_at", :null => false
   end
 
   create_table "users", :force => true do |t|

@@ -17,6 +17,9 @@ CspriteServer::Application.routes.draw do
       get 'logout'
     end
   end
+
+  match 'upload/upload' => "upload#upload"
+
   # Sample of regular route:
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action

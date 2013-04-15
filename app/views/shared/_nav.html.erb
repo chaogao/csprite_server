@@ -1,3 +1,9 @@
+<% if @currentCsprite %>
+    <script>
+        window.currentCsprite = <%= @currentCspriteJson.html_safe %>;
+    </script>
+<% end %>
+
 <ul class="nav nav-pills nav-big">
     <% if @currentUser %>
         <li>

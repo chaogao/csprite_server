@@ -1,7 +1,7 @@
 class CspriteController < ApplicationController
     before_filter :auth_login
 
-    before_filter :auth_csprite, :only => [:completed]
+    before_filter :auth_csprite, :only => [:completed, :edit]
 
     PAGECOUNT = 8
 
@@ -43,6 +43,9 @@ class CspriteController < ApplicationController
 
     end
 
+    def edit
+    end
+
     private 
     def redirect_new
         redirect_to :action => :new
@@ -62,9 +65,10 @@ class CspriteController < ApplicationController
 
     def auth_csprite
         if params[:id]
-            csprite = Csprite.find_by_id(params[:id])
-            if csprite && csprite.user == @currentUser
+            csprite = @currentUser.csprites.find_by_id(params[:id])
+            if csprite
                 @currentCsprite = csprite
+                @currentCspriteJson = csprite.to_json(:only => [:id, :description, :name, :thumb, :direction, :marginX, :marginY])
             else
                 redirect_list
             end

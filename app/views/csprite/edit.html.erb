@@ -1,0 +1,16 @@
+<% content_for :silder do %>
+	<form id="form1" action="index.php" method="post" enctype="multipart/form-data">
+		<h3>Select Icons Upload</h3>
+		<div id="fsUploadProgress"></div>
+		<div id="divStatus">0 Files Uploaded</div>
+		<div>
+			<span class="text-block-orange" id="swfUploadContainer"></span>
+			<a class="text-block-orange" id="btnCancel" onclick="swfu.cancelQueue();">Cancel</a>
+		</div>
+	</form>
+<% end %>
+
+<% content_for :assets do %>
+	<%= javascript_include_tag :swfuploadcore  %>
+	<%= javascript_include_tag :csprite  %>	
+<% end %>

@@ -5,8 +5,8 @@ class Csprite < ActiveRecord::Base
 
 	validates_presence_of [:name, :user_id, :direction, :marginX, :marginY]
 
-	def self.create_by_user (csprite, user)
-		csprite = self.new csprite
+	def self.create_by_user (params, user)
+		csprite = self.new params
 		csprite.user = user
 		return csprite
 	end
