@@ -17,13 +17,14 @@
  */
 (function(){
     /**flash uploader **/
-    var flashUC = $("#swfUploadContainer");
+    var flashUC = $("#swfUploadContainer"),
+    	csrfToken = $("head meta[name=csrf-token]").attr('content');
 
     if (flashUC.size() != 0) {
         var settings = {
             flash_url : "/assets/swfupload.swf",
             upload_url: "/upload/upload",
-            post_params: {"csprite_id": currentCsprite.id},
+            post_params: {"csprite_id": currentCsprite.id, "authenticity_token": csrfToken},
             file_size_limit : "500",
             file_types : "*.jpg; *.png; *.gif",
             file_types_description : "All Images",
@@ -36,7 +37,7 @@
             debug: false,
 
             // Button settings
-            button_width: "100%",
+            button_width: "100",
             button_height: "36",
             button_placeholder_id: "swfUploadContainer",
             button_text: '<span class="theFont">Upload</span>',

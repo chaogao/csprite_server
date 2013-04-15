@@ -1,11 +1,13 @@
 <% content_for :silder do %>
-	<form id="form1" action="index.php" method="post" enctype="multipart/form-data">
+	<form id="form1" class="upload-form" method="post" enctype="multipart/form-data">
 		<h3>Select Icons Upload</h3>
 		<div id="fsUploadProgress"></div>
 		<div id="divStatus">0 Files Uploaded</div>
-		<div>
-			<span class="text-block-orange" id="swfUploadContainer"></span>
-			<a class="text-block-orange" id="btnCancel" onclick="swfu.cancelQueue();">Cancel</a>
+		<div class="button-container">
+			<span class="" id="swfUploadContainer"></span>
+			<span class="text-block-orange">
+				<a href="javascript:" id="btnCancel" onclick="swfu.cancelQueue();">Cancel</a>
+			</span>
 		</div>
 	</form>
 <% end %>
