@@ -27,7 +27,7 @@
 	<% @cspritesOutput.each_index do |i| %>
 		<% if i == 0 %>
 			<li class="span5">
-				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>/edit" class="thumbnail">
 					<div class="image-container" style="background-image: url(<%= @cspritesOutput[i].thumb %>)"></div>
 					<div class="carousel-caption">
 						<h4><%= @cspritesOutput[i].name %></h4>
@@ -36,7 +36,7 @@
 			</li>
 		<% elsif i > 4 %>
 			<li class="span3">
-				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>/edit" class="thumbnail">
 					<div class="image-container" style="background-image: url(<%= @cspritesOutput[i].thumb %>)"></div>
 					<div class="carousel-caption">
 						<h4><%= @cspritesOutput[i].name %></h4>
@@ -45,7 +45,7 @@
 			</li>
 		<% else %>
 			<li class="span2">
-				<a href="/csprite/<%= @cspritesOutput[i].id %>" class="thumbnail">
+				<a href="/csprite/<%= @cspritesOutput[i].id %>/edit" class="thumbnail">
 					<div class="image-container" style="background-image: url(<%= @cspritesOutput[i].thumb %>)"></div>
 					<div class="carousel-caption">
 						<h4><%= @cspritesOutput[i].name %></h4>
