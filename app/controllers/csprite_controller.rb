@@ -69,6 +69,7 @@ class CspriteController < ApplicationController
             if csprite
                 @currentCsprite = csprite
                 @currentCspriteJson = csprite.to_json(:only => [:id, :description, :name, :thumb, :direction, :marginX, :marginY])
+                @currentIconsJson = csprite.icons.to_json(:only => [:name, :url])
             else
                 redirect_list
             end

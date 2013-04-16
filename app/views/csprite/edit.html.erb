@@ -2,20 +2,6 @@
     <div run="auto" class="accordion" id="accordionCspritSilder">
         <div class="accordion-group">
             <span class="text-block-purple">
-                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseOne">
-                    Project Setting
-                </a>
-            </span>
-
-            <div id="collapseOne" class="accordion-body collapse">
-                <div class="accordion-inner">
-                    <%= render :partial => "csprite_info", :locals => {:csprite => @currentCsprite, :editable => true} %>
-                </div>
-            </div>
-        </div>
-
-        <div class="accordion-group">
-            <span class="text-block-purple">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseTwo">
                     Add Icons
                 </a>
@@ -40,20 +26,59 @@
         <div class="accordion-group">
             <span class="text-block-purple">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseThree">
-                    Design Sprite
+                    Desgin Sprite
                 </a>
             </span>
 
             <div id="collapseThree" class="accordion-body collapse">
                 <div class="accordion-inner">
-                    <p>to do finish</p>
+                    <div id="desginContainer">
+                        <ul class="nav nav-pills">
+                            <li><a href="#iconListContainer" data-toggle="tab">List Icon</a></li>
+                            <li><a href="#iconSelectedContainer" data-toggle="tab">Edit Icon</a></li>
+                        </ul>
+                        <div class="tab-content">
+                            <div class="tab-pane" id="iconListContainer" data-template="tpl-icon-list" data-list='<%= @currentIconsJson %>' data-toggle="list">list</div>
+                            <div class="tab-pane" id="iconSelectedContainer" data-detail="" data-toogle="detail">icon</div>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>
+
+        <div class="accordion-group">
+            <span class="text-block-purple">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseOne">
+                    Project Setting
+                </a>
+            </span>
+
+            <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <%= render :partial => "csprite_info", :locals => {:csprite => @currentCsprite, :editable => true} %>
+                </div>
+            </div>
+        </div>
+
     </div>
 <% end %>
 
 <% content_for :assets do %>
     <%= javascript_include_tag :swfuploadcore  %>
     <%= javascript_include_tag :csprite  %> 
+    <%= stylesheet_link_tag "csprite", :media => "all" %>
+<% end %>
+
+<% content_for :templates do %>
+    <textarea id="tpl-icon-list" type="text/tpl" style="display:none;">
+        <ul class="unstyled">
+            {#foreach $T.icons as icon}
+                <li class="clearfix">
+                    <a title="{$T.icon.name}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</a>
+                    <a class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
+                    <a class="btn btn-link pull-right" href="javascript:"><i class="icon-edit"></i>E</a>
+                </li>
+            {#/for}
+        </ul>
+    </textarea>
 <% end %>

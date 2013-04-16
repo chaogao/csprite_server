@@ -3,6 +3,8 @@ class Csprite < ActiveRecord::Base
 
 	belongs_to :user
 
+	has_many :icons
+
 	validates_presence_of [:name, :user_id, :direction, :marginX, :marginY]
 
 	def self.create_by_user (params, user)

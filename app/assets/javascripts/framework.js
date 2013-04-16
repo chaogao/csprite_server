@@ -7,16 +7,7 @@
 		/**
 		 * @description carousel auto run
 		 */
-		$(".carousel[run=auto]").each(function() {
-			$(this).carousel();
-		});
-
-		/**
-		 * @description collapse auto run
-		 */
-		$("collapase[run=auto]").each(function() {
-			$(this).collapase();
-		});
+		$(".carousel[run=auto]").carousel();
 
 		/**
 		 * @description set mini-height

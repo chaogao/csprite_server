@@ -1,3 +1,7 @@
+// require pulings for this controller
+//= require jquery-jtemplates
+
+
 /**
  * @description {new} action 的一些逻辑
  */
@@ -59,4 +63,27 @@
         };
         swfu = new SWFUpload(settings);
     }
+
+    /**
+     * @description desgin component logic
+     */
+    if ($("#desginContainer").size() != 0) {
+        var desginContainer = $("#desginContainer");
+
+        desginContainer.find("a[href=#iconListContainer]").on("shown", function(e) {
+            var container = $($(this).attr("href")),
+                data = container.data("list"),
+                tpl = container.data("template");
+
+            try {   
+                container.setTemplateElement(tpl);
+                container.processTemplate({"icons": data});
+                container.find("[data-toggle=popover]").popover();
+            } catch(e) {
+                console.log(e);
+            }
+        }).tab("show");
+    }
+
+
 })();

@@ -1,5 +1,23 @@
 @import "base";
 
+#desginContainer {
+	.nav {
+		margin-bottom: 5px;
+	}
+	.name-text {
+		display: inline-block;
+		line-height: 30px;
+		font-weight: bold;
+		max-width: 120px;
+		overflow: hidden;
+	}
+	.btn {
+		padding: 4px 3px;
+	}
+	max-height: 400px;
+	overflow: auto;
+}
+
 .thumbnails-square {
 	.thumbnail {
 		@include border-radius(0);

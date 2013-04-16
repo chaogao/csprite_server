@@ -1,7 +1,3 @@
-<% content_for :assets do %>
-  <%= stylesheet_link_tag "csprite", :media => "all" %>
-<% end %>
-
 <% if !@noProject %>
 	<% content_for :silder do %>
 		<ul class="nav nav-stacked nav-pills nav-floor">
@@ -59,3 +55,7 @@
 		<% end %>
 	<% end %>
 </ul>
+
+<% content_for :assets do %>
+  <%= stylesheet_link_tag "csprite", :media => "all" %>
+<% end %>
