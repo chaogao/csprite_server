@@ -5,10 +5,17 @@
 
 	$(document).ready(function() {
 		/**
-		 * @description carousel for run attr is auto dom
+		 * @description carousel auto run
 		 */
 		$(".carousel[run=auto]").each(function() {
 			$(this).carousel();
+		});
+
+		/**
+		 * @description collapse auto run
+		 */
+		$("collapase[run=auto]").each(function() {
+			$(this).collapase();
 		});
 
 		/**

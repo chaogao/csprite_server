@@ -1,0 +1,63 @@
+<%= form_for csprite, :url => {:action => "edit"}, :html => {:class => "form"} do |c| %>
+    <div class="control-group">
+        <label class="control-label">Project Name</label>
+        <div class="controls">
+            <%= c.text_field :name, {:disabled => true, :class => "input-block-level"} %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Project Thumb</label>
+        <div class="controls">
+            <%= c.text_field :thumb, {:disabled => true, :class => "input-block-level"} %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Project Description</label>
+        <div class="controls">
+            <%= c.text_area :description, {:rows => 3, :disabled => true, :class => "input-block-level"} %>  
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Build Direction</label>
+        <div class="controls">
+            <%= c.label :direction_0, {:class => "radio inline"} do %>
+                <%= c.radio_button :direction, "0", {:checked => true, :disabled => true} %>
+                vertical
+            <% end %>
+        
+            <%= c.label :direction_1, {:class => "radio inline"} do %>
+                <%= c.radio_button :direction, "1" , {:disabled => true} %>
+                horizontal
+            <% end %>
+        </div>
+    </div>
+
+    <div class="control-group">
+        <label class="control-label">Margin Setting</label>
+        <div class="controls">
+            <%= c.label :marginX, "horizontal margin" %>
+            <%= c.text_field :marginX, {:disabled => true, :class => "input-block-level"}%>
+
+            <%= c.label :marginY, "vertical margin" %>
+            <%= c.text_field :marginY, {:disabled => true, :class => "input-block-level"} %>
+        </div>
+    </div>
+
+    <% if editable %>
+        <ul class="nav nav-pills nav-action">
+            <li>
+                <a type="save" href="javascript:">
+                    <span>Save Change</span>
+                </a>
+            </li>
+            <li>
+                <a type="edit" href="javascript:">
+                    <span>Edit Setting</span>
+                </a>
+            </li>
+        </ul>
+    <% end %>
+<% end %>

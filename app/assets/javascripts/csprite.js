@@ -37,13 +37,14 @@
             debug: false,
 
             // Button settings
+            button_image_url: "/assets/flash-button-background.png",
             button_width: "100",
             button_height: "36",
             button_placeholder_id: "swfUploadContainer",
             button_text: '<span class="theFont">Upload</span>',
-            button_text_style: ".theFont { font-size: 24px; background-color: #FB0}",
+            button_text_style: ".theFont { font-size: 24px; color: #ffffff;}",
             button_text_left_padding: 12,
-            button_text_top_padding: 3,
+            button_text_top_padding: 0,
             
             // The event handler functions are defined in handlers.js
             file_queued_handler : fileQueued,

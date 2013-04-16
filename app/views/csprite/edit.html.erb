@@ -1,18 +1,59 @@
 <% content_for :silder do %>
-	<form id="form1" class="upload-form" method="post" enctype="multipart/form-data">
-		<h3>Select Icons Upload</h3>
-		<div id="fsUploadProgress"></div>
-		<div id="divStatus">0 Files Uploaded</div>
-		<div class="button-container">
-			<span class="" id="swfUploadContainer"></span>
-			<span class="text-block-orange">
-				<a href="javascript:" id="btnCancel" onclick="swfu.cancelQueue();">Cancel</a>
-			</span>
-		</div>
-	</form>
+    <div run="auto" class="accordion" id="accordionCspritSilder">
+        <div class="accordion-group">
+            <span class="text-block-purple">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseOne">
+                    Project Setting
+                </a>
+            </span>
+
+            <div id="collapseOne" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <%= render :partial => "csprite_info", :locals => {:csprite => @currentCsprite, :editable => true} %>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <span class="text-block-purple">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseTwo">
+                    Add Icons
+                </a>
+            </span>
+            
+            <div id="collapseTwo" class="accordion-body collapse in">
+                <div class="accordion-inner">
+                    <form class="upload-form" method="post" enctype="multipart/form-data">
+                        <div id="fsUploadProgress"></div>
+                        <div id="divStatus">0 Files Uploaded</div>
+                        <div class="button-container">
+                            <span class="" id="swfUploadContainer"></span>
+                            <span class="text-block-orange">
+                                <a href="javascript:" id="btnCancel" onclick="swfu.cancelQueue();">Cancel</a>
+                            </span>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="accordion-group">
+            <span class="text-block-purple">
+                <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseThree">
+                    Design Sprite
+                </a>
+            </span>
+
+            <div id="collapseThree" class="accordion-body collapse">
+                <div class="accordion-inner">
+                    <p>to do finish</p>
+                </div>
+            </div>
+        </div>
+    </div>
 <% end %>
 
 <% content_for :assets do %>
-	<%= javascript_include_tag :swfuploadcore  %>
-	<%= javascript_include_tag :csprite  %>	
+    <%= javascript_include_tag :swfuploadcore  %>
+    <%= javascript_include_tag :csprite  %> 
 <% end %>
