@@ -70,19 +70,19 @@
     if ($("#desginContainer").size() != 0) {
         var desginContainer = $("#desginContainer");
 
-        desginContainer.find("a[href=#iconListContainer]").on("shown", function(e) {
+        desginContainer.find("a[href=#unlinkedContainer], a[href=#linkedContainer]").on("shown", function(e) {
             var container = $($(this).attr("href")),
                 data = container.data("list"),
                 tpl = container.data("template");
 
-            try {   
+            try {
                 container.setTemplateElement(tpl);
                 container.processTemplate({"icons": data});
                 container.find("[data-toggle=popover]").popover();
             } catch(e) {
                 console.log(e);
             }
-        }).tab("show");
+        }).first().tab("show");
     }
 
 

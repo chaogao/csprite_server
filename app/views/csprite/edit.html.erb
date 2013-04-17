@@ -26,7 +26,7 @@
         <div class="accordion-group">
             <span class="text-block-purple">
                 <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordionCspritSilder" href="#collapseThree">
-                    Desgin Sprite
+                    Desgin Sprite Icons
                 </a>
             </span>
 
@@ -34,12 +34,14 @@
                 <div class="accordion-inner">
                     <div id="desginContainer">
                         <ul class="nav nav-pills">
-                            <li><a href="#iconListContainer" data-toggle="tab">List Icon</a></li>
-                            <li><a href="#iconSelectedContainer" data-toggle="tab">Edit Icon</a></li>
+                            <li><a href="#unlinkedContainer" data-toggle="tab">Unlinked</a></li>
+                            <li><a href="#linkedContainer" data-toggle="tab">Linked</a></li>
+                            <li><a href="#editContainer" data-toggle="tab">Editing</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane" id="iconListContainer" data-template="tpl-icon-list" data-list='<%= @currentIconsJson %>' data-toggle="list">list</div>
-                            <div class="tab-pane" id="iconSelectedContainer" data-detail="" data-toogle="detail">icon</div>
+                            <div class="tab-pane" id="unlinkedContainer" data-template="tpl-icon-list" data-list='<%= @unLinkedIconsJson %>' data-toggle="list">list</div>
+                            <div class="tab-pane" id="linkedContainer" data-template="tpl-icon-list" data-list='<%= @linkedIconsJson %>' data-toggle="list">list</div>
+                            <div class="tab-pane" id="editContainer" data-detail="" data-toogle="detail">icon</div>
                         </div>
                     </div>
                 </div>
@@ -74,7 +76,10 @@
         <ul class="unstyled">
             {#foreach $T.icons as icon}
                 <li class="clearfix">
-                    <a title="{$T.icon.name}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</a>
+                    <label class="checkbox inline">
+                        <input type="checkbox">
+                        <a title="{$T.icon.name}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</a>
+                    </label>
                     <a class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
                     <a class="btn btn-link pull-right" href="javascript:"><i class="icon-edit"></i>E</a>
                 </li>
