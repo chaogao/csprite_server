@@ -8,6 +8,10 @@ CspriteServer::Application.routes.draw do
       get 'completed'
       get 'page'
     end
+
+    collection do
+      post 'linkicons'
+    end
   end
 
   resources :user do

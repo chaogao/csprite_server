@@ -40,10 +40,21 @@ class CspriteController < ApplicationController
 
     #get csprite/{:id}/completed
     def completed
-
     end
 
     def edit
+    end
+
+    # post csprite/linkicons
+    def linkicons
+        if request.post?
+            ids = params[:ids]
+            csprite = @currentUser.csprites.find_by_id(params[:csprite])
+            if csprite
+                icons = csprite.link(ids)
+                render :json => {:succ => true, :icons => icons} if icons
+            end
+        end
     end
 
     private 
@@ -69,7 +80,7 @@ class CspriteController < ApplicationController
             if csprite
                 @currentCsprite = csprite
                 @currentCspriteJson = csprite.to_json(:only => [:id, :description, :name, :thumb, :direction, :marginX, :marginY])
-                @linkedIconJson = csprite.icons.where(:status => 1).to_json
+                @linkedIconsJson = csprite.icons.where(:status => 1).to_json
                 @unLinkedIconsJson = csprite.icons.where(:status => 0).to_json
             else
                 redirect_list

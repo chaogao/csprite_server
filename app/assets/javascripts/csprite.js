@@ -22,7 +22,7 @@
 (function(){
     /**flash uploader **/
     var flashUC = $("#swfUploadContainer"),
-    	csrfToken = $("head meta[name=csrf-token]").attr('content');
+        csrfToken = $("head meta[name=csrf-token]").attr('content');
 
     if (flashUC.size() != 0) {
         var settings = {
@@ -68,7 +68,9 @@
      * @description desgin component logic
      */
     if ($("#desginContainer").size() != 0) {
-        var desginContainer = $("#desginContainer");
+        var desginContainer = $("#desginContainer"),
+            unlinkedContainer = $("#unlinkedContainer");
+            linkedContainer = $("#linkedContainer");
 
         desginContainer.find("a[href=#unlinkedContainer], a[href=#linkedContainer]").on("shown", function(e) {
             var container = $($(this).attr("href")),
@@ -76,14 +78,72 @@
                 tpl = container.data("template");
 
             try {
-                container.setTemplateElement(tpl);
-                container.processTemplate({"icons": data});
+                container.find("[data-toggle=listContent]").setTemplateElement(tpl);
+                container.find("[data-toggle=listContent]").processTemplate({"icons": data});
                 container.find("[data-toggle=popover]").popover();
             } catch(e) {
                 console.log(e);
             }
         }).first().tab("show");
-    }
 
+        /** 点击linkbutton **/
+        unlinkedContainer.find("a[data-toggle=linkselected]").on("click", function(e) {
+            var selectids, json;
+
+            selectids = unlinkedContainer.find("input[data-toggle=iconitem]:checked").map(function() {
+                return $(this).data("key");
+            }).get();
+
+            json = {
+                ids: selectids,
+                csprite: currentCsprite.id
+            }
+
+            $.ajax({
+                url: "/csprite/linkicons",
+                type: "post",
+                data: json,
+                success: function(json) {
+                    if (json.succ) {
+                        var linkedList, unlinkedList;
+
+                        unlinkedContainer.find("input[data-toggle=iconitem]:checked").parents("li").remove();
+
+                        unlinkedList = unlinkedContainer.data("list");
+                        unlinkedList = unlinkedList.filter(function(l) {
+                            var exist = json.icons.some(function(i) {
+                                return i.id == l.id;
+                            });
+                            return !exist;
+                        });
+                        unlinkedContainer.data("list", unlinkedList);
+
+                        linkedList = linkedContainer.data("list");
+                        linkedList = linkedList.concat(json.icons);
+                        linkedContainer.data("list", linkedList);
+                    }
+                }
+            });
+        });
+
+        /** 点击删除button的回调 **/
+        desginContainer.delegate("a[data-toggle=remove]", "click", function(e) {
+            var key = $(this).data("key");
+
+            core.modal.confirm({
+                title: "删除确认",
+                body: "确定要删除吗?",
+                cb: function(f) {
+                    if (f) {
+                        removeIcon(key);
+                    }
+                }
+            });
+        });
+
+
+
+
+    }
 
 })();

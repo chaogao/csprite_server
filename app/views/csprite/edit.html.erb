@@ -39,8 +39,24 @@
                             <li><a href="#editContainer" data-toggle="tab">Editing</a></li>
                         </ul>
                         <div class="tab-content">
-                            <div class="tab-pane" id="unlinkedContainer" data-template="tpl-icon-list" data-list='<%= @unLinkedIconsJson %>' data-toggle="list">list</div>
-                            <div class="tab-pane" id="linkedContainer" data-template="tpl-icon-list" data-list='<%= @linkedIconsJson %>' data-toggle="list">list</div>
+                            <div class="tab-pane" id="unlinkedContainer" data-template="tpl-icon-unlinkedlist" data-list='<%= @unLinkedIconsJson %>' data-toggle="list">
+                                <div data-toggle="listContent"></div>
+                                <ul class="nav nav-pills nav-action">
+                                    <li>
+                                        <a data-toggle="selectall" href="javascript:">
+                                            <span>Selected All</span>
+                                        </a>
+                                    </li>
+                                    <li>
+                                        <a data-toggle="linkselected" href="javascript:">
+                                            <span>Link Selected</span>
+                                        </a>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="tab-pane" id="linkedContainer" data-template="tpl-icon-linkedlist" data-list='<%= @linkedIconsJson %>' data-toggle="list">
+                                <div data-toggle="listContent"></div>
+                            </div>
                             <div class="tab-pane" id="editContainer" data-detail="" data-toogle="detail">icon</div>
                         </div>
                     </div>
@@ -72,16 +88,26 @@
 <% end %>
 
 <% content_for :templates do %>
-    <textarea id="tpl-icon-list" type="text/tpl" style="display:none;">
+    <textarea id="tpl-icon-unlinkedlist" type="text/tpl" style="display:none;">
         <ul class="unstyled">
             {#foreach $T.icons as icon}
                 <li class="clearfix">
                     <label class="checkbox inline">
-                        <input type="checkbox">
-                        <a title="{$T.icon.name}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</a>
+                        <input data-toggle="iconitem" data-key="{$T.icon.id}" type="checkbox">
+                        <span title="{$T.icon.name}" data-key="{$T.icon.id}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</span>
                     </label>
-                    <a class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
-                    <a class="btn btn-link pull-right" href="javascript:"><i class="icon-edit"></i>E</a>
+                    <a data-toggle="remove" class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
+                </li>
+            {#/for}
+        </ul>
+    </textarea>
+    <textarea id="tpl-icon-linkedlist" type="text/tpl" style="display:none;">
+        <ul class="unstyled">
+            {#foreach $T.icons as icon}
+                <li class="clearfix">
+                    <a title="{$T.icon.name}" data-key="{$T.icon.id}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</a>
+                    <a data-toggle="edit" data-key="{$T.icon.id}" class="btn btn-link pull-right" href="javascript:"><i class="icon-edit"></i>E</a>
+                    <a data-toggle="remove" data-key="{$T.icon.id}" class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
                 </li>
             {#/for}
         </ul>

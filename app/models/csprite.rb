@@ -12,4 +12,21 @@ class Csprite < ActiveRecord::Base
 		csprite.user = user
 		return csprite
 	end
+
+	def link(ids)
+		icons = []
+		ids.each do |id|
+			icon = self.icons.find(id)
+			icon.status = 1 if icon
+			if icon.save
+				icons << icon
+			end
+		end
+
+		if (icons.count != 0)
+			return icons
+		else
+			return false
+		end
+	end
 end
