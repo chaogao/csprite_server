@@ -11,8 +11,6 @@
     }).on("hidden", function() {
         $("#advaceSettingBtn i")[0].className = "m-icon-big-swapdown";
     });
-
-
 })();
 
 
@@ -140,10 +138,6 @@
                 }
             });
         });
-
-
-
-
     }
 
 })();

@@ -33,15 +33,15 @@
             <div id="collapseThree" class="accordion-body collapse">
                 <div class="accordion-inner">
                     <div id="desginContainer">
-                        <ul class="nav nav-pills">
+                        <ul class="nav nav-pills list-status clearfix">
                             <li><a href="#unlinkedContainer" data-toggle="tab">Unlinked</a></li>
                             <li><a href="#linkedContainer" data-toggle="tab">Linked</a></li>
                             <li><a href="#editContainer" data-toggle="tab">Editing</a></li>
                         </ul>
                         <div class="tab-content">
                             <div class="tab-pane" id="unlinkedContainer" data-template="tpl-icon-unlinkedlist" data-list='<%= @unLinkedIconsJson %>' data-toggle="list">
-                                <div data-toggle="listContent"></div>
-                                <ul class="nav nav-pills nav-action">
+                                <div class="list-icons" data-toggle="listContent"></div>
+                                <ul class="nav nav-pills nav-action list-action">
                                     <li>
                                         <a data-toggle="selectall" href="javascript:">
                                             <span>Selected All</span>
@@ -55,7 +55,7 @@
                                 </ul>
                             </div>
                             <div class="tab-pane" id="linkedContainer" data-template="tpl-icon-linkedlist" data-list='<%= @linkedIconsJson %>' data-toggle="list">
-                                <div data-toggle="listContent"></div>
+                                <div class="list-icons" data-toggle="listContent"></div>
                             </div>
                             <div class="tab-pane" id="editContainer" data-detail="" data-toogle="detail">icon</div>
                         </div>

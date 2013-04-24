@@ -1,6 +1,7 @@
 @import "base";
 
 #desginContainer {
+	padding: 35px 0;
 	.nav {
 		margin-bottom: 5px;
 	}
@@ -10,10 +11,26 @@
 		font-weight: bold;
 		max-width: 120px;
 		overflow: hidden;
+		white-space: nowrap;
 	}
 	.btn {
 		padding: 4px 3px;
 	}
+	.list-status {
+		position: absolute;
+		top: 5px;
+		left: 10px;
+	}
+    .list-icons {
+        padding-right: 5px;
+        height: 330px;
+        overflow: auto; 
+    }
+    .list-action {
+        position: absolute;
+        bottom: 5px;
+        left: 10px;
+    }
 	label {
 		input {
 			margin-top: 9px;
@@ -21,7 +38,6 @@
 		}
 	}
 	max-height: 400px;
-	overflow: auto;
 }
 
 .thumbnails-square {
