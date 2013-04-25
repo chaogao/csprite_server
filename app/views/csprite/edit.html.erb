@@ -93,10 +93,10 @@
             {#foreach $T.icons as icon}
                 <li class="clearfix">
                     <label class="checkbox inline">
-                        <input data-toggle="iconitem" data-key="{$T.icon.id}" type="checkbox">
-                        <span title="{$T.icon.name}" data-key="{$T.icon.id}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</span>
+                        <input data-toggle="iconitem" data-key="{$T.icon.id}" data-icon='{JSON.stringify($T.icon)}' type="checkbox">
+                        <span title="{$T.icon.name}" class="name-text" run="auto" href="javascript:" data-container="body" data-html="true" data-toggle="popover" data-content="<img src='{$T.icon.url}'>" data-trigger="hover">{$T.icon.name}</span>
                     </label>
-                    <a data-toggle="remove" class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
+                    <a data-toggle="remove" data-key="{$T.icon.id}" class="btn btn-link pull-right" href="javascript:"><i class="icon-remove-circle"></i>R</a>
                 </li>
             {#/for}
         </ul>

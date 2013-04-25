@@ -51,8 +51,19 @@ class CspriteController < ApplicationController
             ids = params[:ids]
             csprite = @currentUser.csprites.find_by_id(params[:csprite])
             if csprite
-                icons = csprite.link(ids)
+                icons = csprite.link(ids, params[:override])
                 render :json => {:succ => true, :icons => icons} if icons
+            end
+        end
+    end
+
+    def removeicon
+        if request.post?
+            csprite = @currentUser.csprites.find_by_id(params[:csprite])
+            if csprite
+                icon = csprite.icons.find(params[:id])
+                icon.destroy if icon
+                render :json => {:succ => true, :icon => icon} if icon
             end
         end
     end

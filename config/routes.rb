@@ -11,6 +11,7 @@ CspriteServer::Application.routes.draw do
 
     collection do
       post 'linkicons'
+      post 'removeicon'
     end
   end
 
