@@ -3,6 +3,8 @@
  */
 
 (function() {
+    Csprite.init("/assets/convertBase64.swf");
+
     core = core || {};
 
     var DesignContainer;
@@ -12,6 +14,7 @@
      */
     core.DesignContainer = DesignContainer = function() {
         this.generateElements();
+        this.generateCsprite();
         this.delegateTabChange();
         this.delegatelinkAction();
         this.delegateRemoveAction();
@@ -26,6 +29,58 @@
     }
 
     $.extend(DesignContainer.prototype, {
+        /**
+         * @private DesignContainer#generateCsprite
+         * @private
+         * @description init csprite, with linked icons
+         */
+        generateCsprite: function() {
+            var self = this,
+                resources;
+
+            self.linkedList = self.linkedContainer.data("list");
+            resources = self.linkedList.map(function(item) {
+                return {
+                    src: item.url,
+                    name: item.name
+                }
+            });
+            self.initCsprite(resources);
+        },
+
+        /**
+         * @private DesignContainer#initCsprite
+         */
+        initCsprite: function(resources) {
+            var sceneOpts,
+                canvasOps,
+                loaderOps,
+                scene;
+
+            sceneOpts = {
+                container: "csprite",
+                tile: {
+                    width: 20,
+                    height: 20,
+                    paddingX: 10,
+                    paddingY: 10
+                }
+            };
+
+            canvasOps = {
+                width: 800,
+                height: 600
+            };
+
+            loaderOps = {
+                resources: resources
+            };
+
+            setTimeout(function() {
+                self.scene = scene = new Csprite.Scene(sceneOpts, canvasOps, loaderOps);
+            }, 3000);
+        },
+
         /**
          * @private
          * @description generate elements
@@ -45,6 +100,7 @@
 
         /**
          * @private
+         * @description link icons
          */
         delegatelinkAction: function() {
             var self = this;

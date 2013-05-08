@@ -1,5 +1,7 @@
 // require pulings for this controller
 //= require jquery-jtemplates
+//= require swfobject
+//= require csprite-core
 //= require designContainer
 
 

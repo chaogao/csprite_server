@@ -1,6 +1,8 @@
 require 'mybucket/csprite'
 
 class UploadController < ApplicationController
+    DOMAIN = "http://csprite.oss.aliyuncs.com/"
+
     def upload
         if request.post?
             file = params[:Filedata]
@@ -34,7 +36,7 @@ class UploadController < ApplicationController
         CspriteBucket.store(filename, file)
         img = CspriteBucket.find(filename)
 
-        icon = Icon.create_by_csprite({:name => params[:Filedata].original_filename, :url => img.url(:authenticated => false)}, csprite)
+        icon = Icon.create_by_csprite({:name => params[:Filedata].original_filename, :url => DOMAIN + img.key}, csprite)
         if icon.save
             return true
         else
